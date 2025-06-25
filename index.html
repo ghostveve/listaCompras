@@ -7,8 +7,24 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>🛒 Lista de Compras</h1>
+
+  <!-- Cabeçalho inspirado na imagem -->
+  <header class="cabecalho-reket">
+    <p class="subtitulo"> market by lelê˚.🎀 </p>
+
+    <div class="cesta-box">
+      <img class="cesta-img" src="cesta de compras.png" alt="Cesta de compras" />
+      <div class="texto-sobreposto">
+        <span class="leve"> vamos montar </span><br>
+        <span class="bold"> sua lista </span><span class="traco">_</span><span class="pontuacao">?</span>
+        <br> <span class="leve"> ──── ୨୧ ──── </span><br>  
+    </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo do app -->
+  <main class="container">
+    <h1><img src="https://cdn-icons-png.flaticon.com/512/263/263115.png" alt="Carrinho" class="icon"> Lista de Compras</h1>
 
     <form id="form">
       <input type="text" id="produto" placeholder="Nome do produto" required />
@@ -18,10 +34,13 @@
 
     <ul id="lista-compras"></ul>
 
-    <button id="limpar">🗑️ Limpar Lista</button>
-  </div>
+    <button id="limpar">
+      🗑️ Limpar Lista
+    </button>
+  </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
