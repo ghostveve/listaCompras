@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container {
+  background: rgb(254, 230, 249);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#loader {
+  text-align: center;
+  margin-top: 15px;
+}
+.hidden {
+  display: none;
+}
+
+
+ul {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: rgb(232, 172, 238);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li span {
+  font-weight: bold;
+}
+
+#limpar {
+  margin-top: 15px;
+  background-color: #e73cde;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+li {
+  background: #eef;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
