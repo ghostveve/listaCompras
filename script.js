@@ -1,3 +1,13 @@
+// Contador de cliques
+let contador = 0;
+const botao = document.getElementById("meuBotao");
+const paragrafo = document.getElementById("contador");
+
+botao.addEventListener("click", function () {
+  contador++;
+  paragrafo.textContent = "Cliques: " + contador;
+});
+
 // Captura de elementos
 const form = document.getElementById("form");
 const produtoInput = document.getElementById("produto");
@@ -16,7 +26,11 @@ form.addEventListener("submit", function (e) {
   const quantidade = quantidadeInput.value;
 
   if (nomeProduto && quantidade > 0) {
-    const item = { nome: nomeProduto, quantidade: quantidade };
+    const item = {
+      nome: nomeProduto,
+      quantidade: quantidade,
+      data: new Date().toLocaleDateString(),
+    };
     adicionarItem(item);
     salvarNoLocalStorage(item);
     form.reset();
@@ -29,23 +43,46 @@ botaoLimpar.addEventListener("click", function () {
   lista.innerHTML = "";
 });
 
-// Adiciona item visualmente na lista
+// Função para adicionar item visualmente na lista
 function adicionarItem(item) {
   const li = document.createElement("li");
-  li.innerHTML = `<span>${item.nome}</span> - ${item.quantidade}x`;
+  let emoji = "🛒";
+  const nome = item.nome.toLowerCase();
+
+  if (nome.includes("leite")) emoji = "🥛";
+  else if (nome.includes("pão")) emoji = "🍞";
+  else if (nome.includes("banana")) emoji = "🍌";
+  else if (nome.includes("arroz")) emoji = "🍚";
+  else if (nome.includes("carne")) emoji = "🥩";
+
+  li.innerHTML = `${emoji} ${item.nome} - ${item.quantidade}
+    <button class="remover">❌</button>`;
+
+  // Evento de remover individual
+  li.querySelector(".remover").addEventListener("click", function () {
+    li.remove();
+    removerDoLocalStorage(item);
+  });
+
   lista.appendChild(li);
 }
 
-// Salva item no localStorage
+// Salvar no localStorage
 function salvarNoLocalStorage(item) {
-  let compras = JSON.parse(localStorage.getItem("compras")) || [];
-  compras.push(item);
-  localStorage.setItem("compras", JSON.stringify(compras));
+  const itens = JSON.parse(localStorage.getItem("compras")) || [];
+  itens.push(item);
+  localStorage.setItem("compras", JSON.stringify(itens));
 }
 
-// Carrega a lista salva
+// Carregar lista do localStorage
 function carregarLista() {
-  const compras = JSON.parse(localStorage.getItem("compras")) || [];
-  compras.forEach(adicionarItem);
+  const itens = JSON.parse(localStorage.getItem("compras")) || [];
+  itens.forEach(adicionarItem);
 }
 
+// Remover item do localStorage
+function removerDoLocalStorage(itemRemovido) {
+  const itens = JSON.parse(localStorage.getItem("compras")) || [];
+  const novaLista = itens.filter(item => item.nome !== itemRemovido.nome || item.quantidade != itemRemovido.quantidade);
+  localStorage.setItem("compras", JSON.stringify(novaLista));
+}

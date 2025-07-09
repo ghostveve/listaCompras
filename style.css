@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   background: #fdfdfd;
@@ -35,6 +36,11 @@ body {
 .cesta-img {
   width: 320px;
   max-width: 90%;
+  transition: transform 0.3s ease;
+}
+
+.cesta-img:hover {
+  transform: scale(1.05);
 }
 
 .texto-sobreposto {
@@ -131,6 +137,15 @@ li {
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.remover {
+  background: none;
+  border: none;
+  color: #d00;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* --- Botão Limpar --- */
@@ -150,5 +165,3 @@ li {
 #limpar:hover {
   background-color: #c2185b;
 }
-
-
