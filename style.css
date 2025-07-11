@@ -89,6 +89,7 @@ body {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  color: #000000;
 }
 
 .icon {
@@ -164,4 +165,58 @@ li {
 
 #limpar:hover {
   background-color: #c2185b;
+}
+
+/* Modo Escuro */
+body.dark {
+  background-color: #00000086;
+  color: #eee;
+}
+
+body.dark li {
+  background: #0000008a;
+  color: #eee;
+}
+
+body.dark .modal-content {
+  background: #0c000bce;
+  color: #eee; 
+}
+
+/* Filtros de Daltonismo - Cores ajustadas manualmente */
+
+/* Protanopia - dificuldade com vermelho */
+body.protanopia {
+  background-color: #1b4b26;  /* fundo neutro mais escuro */
+  color: #F0F0F0;  /* texto cinza claro */
+}
+
+body.protanopia li {
+  background-color: #3399FF; /* Azul forte */
+  color: #F0F0F0; /* Texto cinza claro */
+  border-left: 5px solid #ffbb00; /* Borda cinza claro */
+}
+
+/* Deuteranopia - dificuldade com verde */
+body.deuteranopia {
+  background-color: #49a6f1ea;  /* fundo neutro mais escuro */
+  color: #34664f;  /* texto cinza claro */
+}
+s
+body.deuteranopia li {
+  background-color: #17445e; /* Tom laranja avermelhado */
+  color: #ffffff; /* Texto cinza claro */
+  border-left: 5px solid #91f7b6; /* Borda cinza claro */
+}
+
+/* Tritanopia - dificuldade com azul e amarelo */
+body.tritanopia {
+  background-color: #e1b3e7fa;  /* fundo neutro mais escuro */
+  color: #880071;  /* texto cinza claro */
+}
+
+body.tritanopia li {
+  background-color: #73a767; /* Rosa claro */
+  color: #000000; /* Texto cinza claro */
+  border-left: 5px solid #ff59cd; /* Borda cinza claro */
 }

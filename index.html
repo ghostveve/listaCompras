@@ -24,7 +24,7 @@
 
   <!-- Conteúdo do app -->
   <main class="container">
-    <h1><img src="https://cdn-icons-png.flaticon.com/512/263/263115.png" alt="Carrinho" class="icon"> Lista de Compras</h1>
+    <h1> Lista de Compras </h1>
 
     <form id="form">
       <input type="text" id="produto" placeholder="Nome do produto" required />
@@ -34,12 +34,24 @@
 
     <ul id="lista-compras"></ul>
 
-    <button id="limpar">🗑️ Limpar Lista</button>
+    <button id="limpar">🗑️ Limpar Lista </button>
 
     <!-- Contador de cliques -->
-    <button id="meuBotao">Clique aqui</button>
+    <button id="meuBotao"> contador </button>
     <p id="contador">Cliques: 0</p>
   </main>
+
+   <!--modo escuro-->
+  <div id="configuracoes">
+    <h2>Configurações de Acessibilidade</h2>
+    <button id="toggle-dark">🌙 Modo Escuro</button>
+    <select id="seletor-daltonismo">
+      <option value="">Sem Filtro</option>
+      <option value="protanopia">Protanopia</option>,0
+      <option value="deuteranopia">Deuteranopia</option>
+      <option value="tritanopia">Tritanopia</option>
+    </select>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -14,6 +14,19 @@ const produtoInput = document.getElementById("produto");
 const quantidadeInput = document.getElementById("quantidade");
 const lista = document.getElementById("lista-compras");
 const botaoLimpar = document.getElementById("limpar");
+const toggleDark = document.getElementById("toggle-dark");
+const seletorDaltonismo = document.getElementById("seletor-daltonismo");
+
+if (localStorage.getItem("temaDark") === "true") {
+  document.body.classList.add("dark");
+  toggleDark.textContent = "☀️ Modo Claro";
+}
+
+const daltonismo = localStorage.getItem("daltonismo") || "";
+if (daltonismo) {
+  document.body.classList.add(daltonismo);
+  seletorDaltonismo.value = daltonismo;
+}
 
 // Carrega lista do localStorage ao iniciar
 document.addEventListener("DOMContentLoaded", carregarLista);
@@ -66,6 +79,26 @@ function adicionarItem(item) {
 
   lista.appendChild(li);
 }
+
+// Dark Mode
+toggleDark.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  toggleDark.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+  localStorage.setItem("temaDark", isDark);
+});
+
+// Modo Daltonismo
+seletorDaltonismo.addEventListener("change", () => {
+  document.body.classList.remove("protanopia", "deuteranopia", "tritanopia");
+  const valor = seletorDaltonismo.value;
+  if (valor) {
+    document.body.classList.add(valor);
+  }
+  localStorage.setItem("daltonismo", valor);
+});
+
+
 
 // Salvar no localStorage
 function salvarNoLocalStorage(item) {
